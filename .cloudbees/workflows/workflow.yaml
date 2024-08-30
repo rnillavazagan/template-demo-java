@@ -16,7 +16,7 @@ jobs:
       - name: Run Github Security Sast Action - public.
         uses: cloudbees-io/github-security-sast-scan-code@v1
         with:
-          token: ${{ secrets.GIT_PAT }}
+          token: ${{ secrets.GH_SECURITY_SCAN_PAT }}
           language: "LANGUAGE_JAVA"
           
         
