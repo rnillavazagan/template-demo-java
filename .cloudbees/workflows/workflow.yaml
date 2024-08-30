@@ -1,0 +1,23 @@
+name: github-security-sast-workflow
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build:
+    steps:        
+      - name: checkout Source Code
+        uses: cloudbees-io/checkout@v1
+
+      - name: Run Github Security Sast Action - public.
+        uses: cloudbees-io/github-security-sast-scan-code@v1
+        with:
+          token: ${{ secrets.GIT_PAT }}
+          language: "LANGUAGE_JAVA"
+          
+        
+          
